@@ -1,0 +1,15 @@
+package Dados;
+
+public class ProdutoImportado extends Produto {
+	private Double customsFee;
+	
+	public ProdutoImportado(String name, double price, double customsFee) {
+        super(name, price + customsFee);
+        this.customsFee = customsFee;
+    }
+	
+	 @Override
+	    public String gerarEtiqueta() {
+	        return super.gerarEtiqueta() + " (Taxa alfandegária: R$ " + String.format("%.2f", customsFee) + ")";
+	    }
+}
