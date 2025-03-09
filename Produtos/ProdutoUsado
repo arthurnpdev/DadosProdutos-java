@@ -1,0 +1,19 @@
+package Dados;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class ProdutoUsado extends Produto {
+	private Date dateOfManufacture;
+	
+	public ProdutoUsado(String name, double price, Date dateOfManufacture) {
+		super(name,price);
+		this.dateOfManufacture = dateOfManufacture;
+	}
+	
+	 @Override
+	    public String gerarEtiqueta() {
+	        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	        return super.gerarEtiqueta() + " (usado) (Data de fabricação: " + sdf.format(dateOfManufacture) + ")";
+	    }
+}
